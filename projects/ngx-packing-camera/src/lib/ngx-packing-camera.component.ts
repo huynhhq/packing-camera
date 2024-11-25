@@ -8,25 +8,9 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'camera-ngx-packing-camera',
   imports: [],
-  template: `
-    <div>
-      <video
-        #liveVideoFeed
-        style="display: none"
-        [attr.width]="videoWidth"
-        [attr.height]="videoHeight"
-        autoplay
-        class="live-player"
-      ></video>
-      <canvas
-        #canvas
-        [attr.width]="videoWidth"
-        [attr.height]="videoHeight"
-      ></canvas>
-    </div>
-  `,
+  selector: 'camera-ngx-packing-camera',
+  template: './ngx-packing-camera.html',
 })
 export class NgxPackingCameraComponent implements OnInit, OnDestroy {
   @ViewChild('canvas', { static: false })

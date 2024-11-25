@@ -6,7 +6,7 @@ The `NgxPackingCameraComponent` is an Angular library designed to facilitate vid
 
 ## Demo
 
-Try out the <a href="https://packing-camera-sample.vercel.app/?" target="_blank">Live-Demo</a> or see
+Try out the <a href="https://packing-camera-sample.vercel.app" target="_blank">Live-Demo</a> or see
 the <a href="https://github.com/huynhhq/packing-camera-sample" target="_blank">Demo-Project</a>.
 
 ---
