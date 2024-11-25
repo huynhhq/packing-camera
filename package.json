@@ -1,6 +1,6 @@
 {
   "name": "packing-camera",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -8,6 +8,12 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/huynhhq/packing-camera"
+  },
+  "author": "Huynh Hoang",
+  "homepage": "https://github.com/huynhhq/packing-camera",
   "dependencies": {
     "@angular/animations": "^19.0.0",
     "@angular/common": "^19.0.0",
@@ -34,9 +40,5 @@
     "karma-jasmine-html-reporter": "~2.1.0",
     "ng-packagr": "^19.0.0",
     "typescript": "~5.6.2"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/huynhhq/packing-camera"
   }
 }

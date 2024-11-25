@@ -1,6 +1,12 @@
 {
   "name": "ngx-packing-camera",
-  "version": "1.0.5",
+  "version": "1.0.6",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/huynhhq/packing-camera"
+  },
+  "author": "Huynh Hoang",
+  "homepage": "https://github.com/huynhhq/packing-camera",
   "peerDependencies": {
     "@angular/common": "^19.0.0",
     "@angular/core": "^19.0.0"
