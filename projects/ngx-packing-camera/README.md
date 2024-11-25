@@ -1,63 +1,128 @@
-# NgxPackingCamera
+# NgxPackingCamera Component
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.0.
+The `NgxPackingCameraComponent` is an Angular library designed to facilitate video recording and camera functionality. This component is ideal for scenarios such as capturing packaging processes, overlaying order details, and saving videos directly to the user's device or a specified directory.
 
-## Code scaffolding
+---
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Demo
 
-```bash
-ng generate component component-name
-```
+Try out the <a href="https://basst314.github.io/ngx-webcam/?" target="_blank">Live-Demo</a> or see
+the <a href="https://github.com/huynhhq/packing-camera-sample" target="_blank">Demo-Project</a>.
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+---
 
-```bash
-ng generate --help
-```
+## Features
 
-## Building
+- **Live Video Feed**: Stream video from the user's camera to a video element.
+- **Canvas Overlay**: Display text overlays, such as order codes, product names, and timestamps, on a canvas.
+- **Video Recording**: Record video streams and save them as files in the specified directory.
+- **Device Selection**: Enumerate available camera devices and switch between them.
+- **File Saving**: Save recorded videos to a user-specified directory or offer a fallback download option.
 
-To build the library, run:
+---
 
-```bash
-ng build ngx-packing-camera
-```
+## Installation
 
-This command will compile your project, and the build artifacts will be placed in the `dist/` directory.
-
-### Publishing the Library
-
-Once the project is built, you can publish your library by following these steps:
-
-1. Navigate to the `dist` directory:
-   ```bash
-   cd dist/ngx-packing-camera
-   ```
-
-2. Run the `npm publish` command to publish your library to the npm registry:
-   ```bash
-   npm publish
-   ```
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+Install the package via npm:
 
 ```bash
-ng test
+npm install ngx-packing-camera
 ```
 
-## Running end-to-end tests
+---
 
-For end-to-end (e2e) testing, run:
+## Usage
 
-```bash
-ng e2e
+### 1. Import the Component
+
+Add the `NgxPackingCameraComponent` to your module:
+
+```typescript
+import { NgModule } from "@angular/core";
+import { BrowserModule } from "@angular/platform-browser";
+import { NgxPackingCameraComponent } from "ngx-packing-camera";
+
+@NgModule({
+  declarations: [NgxPackingCameraComponent],
+  imports: [BrowserModule],
+  bootstrap: [AppComponent],
+})
+export class AppModule {}
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+---
 
-## Additional Resources
+### 2. Add to Template
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Use the `NgxPackingCameraComponent` in your Angular template:
+
+```html
+<camera-ngx-packing-camera [orderCode]="'ORD12345'" [productName]="'Sample Product'" [mimeType]="'video/webm'" [videoWidth]="720" [videoHeight]="480"></camera-ngx-packing-camera>
+```
+
+---
+
+### 3. Component Properties
+
+| **Input**     | **Type** | **Default**    | **Description**                                         |
+| ------------- | -------- | -------------- | ------------------------------------------------------- |
+| `orderCode`   | `string` | `''`           | The order code to display as an overlay on the video.   |
+| `productName` | `string` | `''`           | The product name to display as an overlay on the video. |
+| `mimeType`    | `string` | `'video/webm'` | The MIME type for the recorded video.                   |
+| `videoWidth`  | `number` | `720`          | The width of the video and canvas.                      |
+| `videoHeight` | `number` | `480`          | The height of the video and canvas.                     |
+
+---
+
+### 4. Component Methods
+
+| **Method**         | **Description**                                                              |
+| ------------------ | ---------------------------------------------------------------------------- |
+| `startRecording()` | Starts recording the video stream and overlays.                              |
+| `stopRecording()`  | Stops recording, saves the video to a file, and resets the recorder.         |
+| `switchCamera()`   | Switches the video feed to a different camera device using the specified ID. |
+
+---
+
+### 5. Example Workflow
+
+#### Start Recording
+
+Call `startRecording()` to begin recording:
+
+```typescript
+@Component({
+  ...
+})
+export class AppComponent {
+  @ViewChild('camera') camera!: NgxPackingCameraComponent;
+
+  start() {
+    this.camera.startRecording();
+  }
+}
+```
+
+#### Stop Recording
+
+Stop the recording and save the file:
+
+```typescript
+stop() {
+  this.camera.stopRecording();
+}
+```
+
+---
+
+## Browser Compatibility
+
+Ensure your application is running on a browser that supports the `MediaRecorder` API.
+
+---
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
+
+For further details and contributions, check out our [GitHub Repository](https://github.com/huynhhq/packing-camera).
