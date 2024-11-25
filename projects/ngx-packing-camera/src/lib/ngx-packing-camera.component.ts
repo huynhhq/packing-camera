@@ -105,7 +105,7 @@ export class NgxPackingCameraComponent implements OnInit, OnDestroy {
     }
   }
 
-  private async ensureDirectoryHandle(): Promise<void> {
+  public async ensureDirectoryHandle(): Promise<void> {
     if (!this.directoryHandle) {
       console.warn('No directoryHandle set. Prompting user to select a directory.');
       await this.selectDirectory();
