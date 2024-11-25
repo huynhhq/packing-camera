@@ -50,7 +50,6 @@ export class NgxPackingCameraComponent implements OnInit, OnDestroy {
   videoChunks: Blob[] = [];
   recordedVideo: string | null = null;
   
-  private permission = false;
   private stream: MediaStream | null = null;
   private animationFrameId: number | null = null;
   private mediaRecorder: MediaRecorder | null = null;
