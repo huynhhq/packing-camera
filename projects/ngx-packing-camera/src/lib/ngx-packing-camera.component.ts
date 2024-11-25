@@ -275,7 +275,6 @@ export class NgxPackingCameraComponent implements OnInit, OnDestroy {
           videoConstraints
         );
 
-        this.permission = true;
         this.stream = videoStream;
 
         // Attach the video stream to the video element
